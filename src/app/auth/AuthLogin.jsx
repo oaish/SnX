@@ -46,7 +46,7 @@ export default function AuthLogin({loginEmailRef, loginPasswordRef, toastRef}) {
                     }),
                 };
 
-                const result = await fetch("http://localhost:3000/api/post/user/login", options);
+                const result = await fetch("/api/post/user/login", options);
                 const data = await result.json();
                 if (data.found) {
                     console.log("User Logged-in Successfully...");

@@ -78,7 +78,7 @@ export default function Page() {
                 }
             };
 
-            const res = await fetch("http://localhost:3000/api/get/user/profile", options);
+            const res = await fetch("/api/get/user/profile", options);
             const data = await res.json();
             console.log("DATA", data)
             if (!data || data.length === 0) {
@@ -120,7 +120,7 @@ export default function Page() {
                 }
             };
 
-            const res = await fetch("http://localhost:3000/api/post/delete-user", options);
+            const res = await fetch("/api/post/delete-user", options);
             const data = await res.json();
 
             console.log(data);
@@ -156,7 +156,7 @@ export default function Page() {
                     }
                 };
 
-                const res = await fetch("http://localhost:3000/api/post/edit-user", options);
+                const res = await fetch("/api/post/edit-user", options);
                 const data = await res.json();
 
                 if (res.ok) {

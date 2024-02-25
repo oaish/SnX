@@ -42,7 +42,7 @@ export default function ContactReview() {
         };
 
         try {
-            const response = await fetch(`http://localhost:3000/api/post/send-feedback`, {
+            const response = await fetch(`/api/post/send-feedback`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

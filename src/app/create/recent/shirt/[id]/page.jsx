@@ -19,7 +19,7 @@ const Page = ({params}) => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/get/model?id=' + params.id)
+        fetch('/api/get/model?id=' + params.id)
             .then(res => res.json())
             .then(bigData => {
                 const {_doc: data} = bigData

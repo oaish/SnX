@@ -52,10 +52,10 @@ export default function AuthSignUp({signEmailRef, signPasswordRef, signNameRef, 
                 })
             };
 
-            let response = await fetch(`http://localhost:3000/api/post/user/signup/verify`, options);
+            let response = await fetch(`/api/post/user/signup/verify`, options);
             const verify = await response.json();
             if (!verify.found) {
-                response = await fetch(`http://localhost:3000/api/post/user/signup/`, options);
+                response = await fetch(`/api/post/user/signup/`, options);
                 const data = await response.json();
                 console.log("User Created Successfully...");
                 setUser(data.user);

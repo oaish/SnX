@@ -37,7 +37,7 @@ export default function AccountPopup({user, setProfile}) {
                 }
             };
 
-            const res = await fetch("http://localhost:3000/api/post/delete-user", options);
+            const res = await fetch("/api/post/delete-user", options);
             const data = await res.json();
 
             console.log(data);
