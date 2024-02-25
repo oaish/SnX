@@ -4,8 +4,13 @@ import User from "@/models/User";
 
 export const POST = async (req) => {
     const {signUpUserDetails, found} = await req.json();
-
     const {signupEmail, signupPassword, signupUsername, signupPhone} = signUpUserDetails;
+    const thirtyDaysInSeconds = 30 * 24 * 60 * 60; // 30 days in seconds
+
+    const cookieOptions = {
+        'Max-Age': thirtyDaysInSeconds,
+        path: '/',
+    };
 
     try {
         await connect()
@@ -20,7 +25,7 @@ export const POST = async (req) => {
         return new Response(JSON.stringify({user, message: "Account Created"}), {
             headers: {
                 "Content-Type": "application/json",
-                "Set-Cookie": `session=true; path=/;`,
+                "Set-Cookie": `session=true; Max-Age=${cookieOptions['Max-Age']}; path=${cookieOptions.path}`,
             },
             status: 201
         });
