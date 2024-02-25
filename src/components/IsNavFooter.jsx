@@ -49,7 +49,7 @@ const IsNavFooter = ({children}) => {
             {!isLoginPage && <Nav/>}
             <NextUIProvider>
                 {children}
-                {!isLoginPage && !isCreatePage && !isAccountPage && <Footer/>}
+                {!isLoginPage && !isCreatePage && <Footer/>}
             </NextUIProvider>
         </>
     )
