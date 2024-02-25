@@ -84,7 +84,7 @@ export default function AccountPopup({user, setProfile}) {
                             <motion.h1
                             >{user.username}</motion.h1>
                             <motion.button onClick={deleteUser}><FaTrashCan/>Delete</motion.button>
-                            <Link href={"/api/post/user/logout"}><FaDoorOpen/>Logout</Link>
+                            <button onClick={() => router.replace("/api/post/user/logout")}><FaDoorOpen/>Logout</button>
                         </motion.div>
                     </StyledTopBanner>
                     <SecondaryBanner>
@@ -94,7 +94,6 @@ export default function AccountPopup({user, setProfile}) {
                     </SecondaryBanner>
                 </AccountContainer>
             </AccountPop>
-            {/*<Toast ref={toastRef}/>*/}
         </>
     );
 }
