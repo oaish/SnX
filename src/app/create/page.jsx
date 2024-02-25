@@ -22,8 +22,9 @@ export default function Page() {
     const fetchModels = async () => {
         const res = await fetch('/api/get/recent-models?user=' + localStorage.getItem('user'))
         const data = await res.json()
-        setModels(data.models)
-        setLoading(false)
+        if (data.models)
+            setModels(data.models)
+        console.log("DATA.MODELS", typeof data.models, data.models)
     }
 
 
@@ -31,7 +32,7 @@ export default function Page() {
         reset()
         setSaved({state: true, isUnSaved: true, name: '', desc: ''})
         setDecalsData([])
-        fetchModels().then()
+        fetchModels().then(() => setLoading(false))
     }, [user]);
 
     const openModel = (model) => {

@@ -1,4 +1,4 @@
-import Studio from "@/pages/studio/Studio";
+import Studio from "@/components/studio/Studio";
 import React from "react";
 
 const Page = () => {

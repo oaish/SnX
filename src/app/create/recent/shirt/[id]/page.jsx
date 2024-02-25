@@ -4,7 +4,7 @@ import useStore from "@/states/modelState";
 import useAppStore from "@/states/appState";
 import useDecalStore from "@/states/decalState";
 import {LoadingScreen} from "@/styles/styledCreate";
-import Studio from "@/pages/studio/Studio";
+import Studio from "@/components/studio/Studio";
 
 const Page = ({params}) => {
     const {

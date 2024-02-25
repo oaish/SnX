@@ -10,44 +10,15 @@ export const POST = async (req) => {
     const {email,backgroundColor, modelType, decalsData, modelColor, name, desc, sizeType, scale, snapshot} = savedObj
     try {
         await connect()
-        const snap = await saveImage(snapshot)
         const data = await Model.find().where({name: name, email: email})
 
-        await Promise.all(decalsData.map(async decal => {
-            if (data.length === 0) {
-                decal.texture = await saveImage(decal.texture);
-                console.log("DATA IS EMPTY")
-                return
-            }
-
-            let DD = data[0].decalsData
-            console.log()
-            console.log()
-            for (const d of DD) {
-                console.log("CHECKING", d.key)
-            }
-            let oldDecal = DD.find(d => (d.key == decal.key))
-            console.log(decal.key, ":", oldDecal?.key, typeof oldDecal)
-            if (!oldDecal) {
-                decal.texture = await saveImage(decal.texture);
-                console.log("CREATED")
-            } else {
-                console.log("NOT CREATED")
-                decal.texture = oldDecal.texture
-            }
-            console.log('////////////////')
-        }));
-
         if (data.length > 0) {
-            const absolutePath = path.join(process.cwd(), 'public', data[0].snapshot);
-            fs.unlinkSync(absolutePath);
-
             await Model.updateOne({
                 name: name,
                 email: email,
             }, {
                 scale: scale,
-                snapshot: snap,
+                snapshot: snapshot,
                 sizeType: sizeType,
                 modelType: modelType,
                 decalsData: decalsData,
@@ -60,7 +31,7 @@ export const POST = async (req) => {
                 name: name,
                 desc: desc,
                 scale: scale,
-                snapshot: snap,
+                snapshot: snapshot,
                 sizeType: sizeType,
                 modelType: modelType,
                 decalsData: decalsData,

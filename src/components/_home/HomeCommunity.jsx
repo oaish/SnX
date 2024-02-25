@@ -69,7 +69,7 @@ export default function HomeCommunity() {
                                 <StyledTopHeading className="text-lg font-semibold mb-2">Sporty
                                     Comfort</StyledTopHeading>
                                 <StyledTopParagraph className="text-gray-500 dark:text-gray-400">A sporty outfit that
-                                    doesn't compromise
+                                    does not compromise
                                     on comfort.</StyledTopParagraph>
                             </StyledTopContainer>
                         </StyledGridBlock>

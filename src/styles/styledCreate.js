@@ -3,14 +3,22 @@ import Link from "next/link";
 import {Canvas} from "@react-three/fiber";
 import {motion} from "framer-motion";
 
-export const CardGrid = styled(motion.div)`
+export const CardGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   position: relative;
+  
+  > .recent-loader {
+    width: 100%;
+    height: 100%;
+    grid-column: span 2;
+    grid-row: span 2;
+    background: crimson;
+  }
 `;
 
-export const StyledBlock = styled(motion.div)`
+export const StyledBlock = styled.div`
   border-radius: 0;
   background: var(--primary-comp-bg);
   //padding: 1rem;
@@ -58,7 +66,7 @@ export const BlockIcon = styled(Link)`
   }
 `;
 
-export const CardGridHeader = styled(motion.div)`
+export const CardGridHeader = styled.div`
   position: absolute;
   top: 0;
   translate: 0 -100%;

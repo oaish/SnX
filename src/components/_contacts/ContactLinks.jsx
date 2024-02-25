@@ -25,8 +25,9 @@ export default function ContactLinks() {
                     initial="initial"
                     animate="show"
                 >
-                    {ObjContact.map((card) => (
+                    {ObjContact.map((card, index) => (
                         <Link
+                            key={index}
                             href={card.path}
                             target="_blank"
                             variants={scaleUp}

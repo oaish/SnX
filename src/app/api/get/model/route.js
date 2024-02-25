@@ -1,10 +1,8 @@
 import {NextResponse} from "next/server";
 import connect from "@/lib/db";
 import Model from "@/models/Model";
-import {saveImage} from "@/lib/dbHelpers";
-import fs from 'fs';
-import path from 'path';
-import {useSearchParams} from "next/navigation";
+
+export const dynamic = 'force-dynamic'
 
 export const GET = async (req) => {
     try {

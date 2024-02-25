@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import Studio from "@/pages/studio/Studio";
+import Studio from "@/components/studio/Studio";
 
 const Page = () => {
     return (

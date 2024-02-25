@@ -4,11 +4,13 @@ import React from "react";
 const ReactQuill = dynamic(
     async () => {
         const { default: RQ } = await import("react-quill");
-        return ({ forwardedRef, ...props }) => <RQ ref={forwardedRef} {...props} />;
+        const DynamicReactQuill = ({ forwardedRef, ...props }) => <RQ ref={forwardedRef} {...props} />;
+        DynamicReactQuill.displayName = "ReactQuill";
+        return DynamicReactQuill;
     },
     {
         ssr: false,
     }
 );
 
-export default ReactQuill
+export default ReactQuill;
