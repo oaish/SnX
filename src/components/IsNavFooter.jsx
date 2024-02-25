@@ -11,12 +11,11 @@ const IsNavFooter = ({children}) => {
     const pathname = usePathname();
     const isLoginPage = pathname.includes("/auth");
     const isCreatePage = pathname.includes("/create")
-    const isAccountPage = pathname.includes("/account");
 
     const {setUser} = useAppStore();
 
     useEffect(() => {
-        if (!isLoginPage && !isCreatePage && !isAccountPage) {
+        if (!isLoginPage && !isCreatePage) {
             fetch('/api/get/user/profile', {
                 method: 'POST',
                 headers: {
@@ -26,21 +25,22 @@ const IsNavFooter = ({children}) => {
             })
                 .then(res => res.json())
                 .then(data => {
+                    console.log("DATA from isNavFooter:", data)
                     setUser(data.currentUser)
                 })
         }
 
-        window.addEventListener('beforeunload', function (e) {
-            e.preventDefault();
-            e.returnValue = '';
-        });
-
-        return () => {
-            window.removeEventListener('beforeunload', function (e) {
-                e.preventDefault();
-                e.returnValue = '';
-            });
-        }
+        // window.addEventListener('beforeunload', function (e) {
+        //     e.preventDefault();
+        //     e.returnValue = '';
+        // });
+        //
+        // return () => {
+        //     window.removeEventListener('beforeunload', function (e) {
+        //         e.preventDefault();
+        //         e.returnValue = '';
+        //     });
+        // }
     }, []);
 
 
