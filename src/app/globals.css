@@ -20,8 +20,17 @@
     --primary-nav-text-color: #fff;
 }
 
+
+::-webkit-scrollbar {
+    width: 2px;
+}
+
 ::-webkit-scrollbar-thumb {
     background: var(--primary-theme-color);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-comp-bg);
 }
 
 * {

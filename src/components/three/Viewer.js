@@ -182,7 +182,7 @@ const Viewer = ({mode, DD, modelUrl}) => {
                 const imgData = gl.domElement.toDataURL("image/png")
                 const a = document.createElement("a");
 
-                a.setAttribute("download", "shirt.png")
+                a.setAttribute("download", "")
                 a.setAttribute("href", imgData)
                 a.click()
 
