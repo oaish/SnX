@@ -46,7 +46,6 @@ const ShirtModel = ({modelRef, groupRef,url, rotation, setModelRayData}) => {
     // LOAD MODEL
     const {nodes, materials} = useGLTF(url)
     console.clear()
-    console.log(nodes)
 
     // ADD DECAL TO ARRAY
     const handleDecal = (e) => {
