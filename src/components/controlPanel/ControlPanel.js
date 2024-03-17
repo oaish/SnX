@@ -73,6 +73,9 @@ export default function ControlPanel() {
             showToast("error", "Error", "Please enter a prompt", toastRef)
             return
         }
+        if (isGenerating) {
+            return
+        }
         setIsGenerating(true)
         let api_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTA1ODI3MTcsInVzZXJfaWQiOiI2NTQ3N2Y1MjgzNWExZjVmN2Y3YWNhZTcifQ.pAjfnPaD_Rtw_p-Qqv05FwXJTLmfSrHD1DO7bQkzlYw"
         let url = "https://api.wizmodel.com/sdapi/v1/txt2img"
